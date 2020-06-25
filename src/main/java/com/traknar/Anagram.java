@@ -1,3 +1,4 @@
+package com.traknar;
 public class Anagram {
     public static String createAnagram(String inpitString){
         String outputString = "";
