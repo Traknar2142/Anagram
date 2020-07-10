@@ -32,5 +32,4 @@ class AnagramTest {
 		assertEquals("cba c1ba c1b2a3 cba123", actual);
 	}
 
-
 }

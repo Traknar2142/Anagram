@@ -1,34 +1,31 @@
 package com.traknar;
 
 public class Anagram {
-	private static String removeLastChar(String s) {
-		return (s == null || s.length() == 0) ? null : (s.substring(0, s.length() - 1));
-	}
-
 	public static String createAnagram(String inpitString) {
-		String outputString = "";
-		String[] massOfWords = inpitString.split("\\s");
-
-		for (int i = 0; i <= massOfWords.length - 1; i++) {
-			char[] massOfChar = massOfWords[i].toCharArray();
-			char[] temp = new char[massOfChar.length];
-			int count = 0;
-			for (int j = massOfChar.length - 1; j >= 0; j--) {
-				if (Character.isLetter(massOfChar[j])) {
-					temp[count] = massOfChar[j];
-					count++;
-				}
-			}
-			count = 0;
-			for (int j = 0; j <= massOfChar.length - 1; j++) {
-				if (Character.isLetter(massOfChar[j])) {
-					massOfChar[j] = temp[count];
-					count++;
-				}
-			}
-			outputString = outputString + new String(massOfChar) + " ";
+		String[] massOfWords = inpitString.split("\\s");	
+		StringBuilder outputString = new StringBuilder();
+		for (String s : massOfWords) {
+			outputString.append(Anagram.reverceString(s) + " ");
 		}
-
-		return removeLastChar(outputString);
+		outputString.deleteCharAt(outputString.length()-1);
+		return outputString.toString();
+	}
+	public static String reverceString(String word) {
+		StringBuilder SWord = new StringBuilder(word);
+		StringBuilder TWord = new StringBuilder();
+		for (int i = SWord.length() - 1; i >= 0; i--) {
+			if (Character.isLetter(SWord.charAt(i))) {
+				TWord.append(SWord.charAt(i));
+			}
+		}
+		int count = 0;
+		for (int i = 0; i <= SWord.length() - 1; i++) {
+			if (Character.isLetter(SWord.charAt(i))) {
+				SWord.setCharAt(i, TWord.charAt(count));
+				count++;
+			}
+		}
+		String reverceWord = SWord.toString();
+		return reverceWord;
 	}
 }
