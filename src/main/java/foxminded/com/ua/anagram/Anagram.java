@@ -1,27 +1,26 @@
-package foxminded.com.ua.task1;
+package foxminded.com.ua.anagram;
 
 public class Anagram {
-    private final String WHITE_SPACES_PATTERN = "\\s";
+    private final static String WHITE_SPACES_PATTERN = "\\s";
 
     public String createAnagram(String inputString) {
         if (inputString == null) {
             throw new IllegalArgumentException("Please, enter words");
         }
         int countOfSpaces = 0;
-        char[] massOfletters =  inputString.toCharArray();
-        for (int letterPosition = massOfletters.length - 1; letterPosition >= 0; letterPosition--) {
-            if (Character.isLetter(massOfletters[letterPosition])) {
+        char[] letters =  inputString.toCharArray();
+        for (int letterPosition = letters.length - 1; letterPosition >= 0; letterPosition--) {
+            if (Character.isLetter(letters[letterPosition])) {
                 break;
             }
-            if (massOfletters[letterPosition] == ' ') {
+            if (letters[letterPosition] == ' ') {
                 countOfSpaces++;
             }
         }
         String[] words = inputString.split(WHITE_SPACES_PATTERN);
         StringBuilder result = new StringBuilder();
-        Anagram anagram = new Anagram();
         for (String word : words) {
-            result.append(anagram.reverceWord(word) + " ");
+            result.append(reverseWord(word) + " ");
         }
 
         if (result.length() != 0) {
@@ -33,7 +32,7 @@ public class Anagram {
         return result.toString();
     }
 
-    private String reverceWord(String inputWord) {
+    private String reverseWord(String inputWord) {
         StringBuilder revercedWord = new StringBuilder(inputWord);
         StringBuilder tempWord = new StringBuilder();
         for (int letterPosition = revercedWord.length() - 1; letterPosition >= 0; letterPosition--) {
@@ -42,8 +41,7 @@ public class Anagram {
             }
         }
         int letterPositionInTemp = 0;
-        for (int letterPosition = 0; letterPosition <= revercedWord.length()
-                - 1; letterPosition++) {
+        for (int letterPosition = 0; letterPosition <= revercedWord.length() - 1; letterPosition++) {
             if (Character.isLetter(revercedWord.charAt(letterPosition))) {
                 revercedWord.setCharAt(letterPosition, tempWord.charAt(letterPositionInTemp));
                 letterPositionInTemp++;
