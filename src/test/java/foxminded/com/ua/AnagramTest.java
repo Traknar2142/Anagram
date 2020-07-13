@@ -8,10 +8,9 @@ import foxminded.com.ua.task1.Anagram;
 
 class AnagramTest {
     Anagram anagram = new Anagram();
-    
     @Test
-    void createAnagram_ShouldThrowNullPointerException_WhenInputNull() {
-        assertThrows(NullPointerException.class, () -> {
+    void createAnagram_ShouldThrowIllegalArgumentException_WhenInputNull() {
+        assertThrows(IllegalArgumentException.class, () -> {
             anagram.createAnagram(null);
         });
     }
@@ -23,21 +22,21 @@ class AnagramTest {
     }
     
     @Test
-    void createAnagram_ShouldReturnEmptyString_WhenInpitIsOneSpaceString() {
+    void createAnagram_ShouldReturnOneSpaceString_WhenInpitIsOneSpaceString() {
         String actual = anagram.createAnagram(" ");
-        assertEquals("", actual);
+        assertEquals(" ", actual);
     }
     
     @Test
-    void createAnagram_ShouldReturnEmptyString_WhenInpitIsTwoSpacesString() {
+    void createAnagram_ShouldReturnTwoSpacesString_WhenInpitIsTwoSpacesString() {
         String actual = anagram.createAnagram("  ");
-        assertEquals("", actual);
+        assertEquals("  ", actual);
     }
     
     @Test
-    void createAnagram_ShouldReturnOneLetterAfterOneSpaceString_WhenInpitIsOneLetterBetweenTwoSpacesString() {
+    void createAnagram_ShouldReturnOneLetterBetweenTwoSpacesString_WhenInpitIsOneLetterBetweenTwoSpacesString() {
         String actual = anagram.createAnagram(" a ");
-        assertEquals(" a", actual);
+        assertEquals(" a ", actual);
     }
     
     @Test
