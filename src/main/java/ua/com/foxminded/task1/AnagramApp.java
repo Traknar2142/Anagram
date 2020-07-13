@@ -1,10 +1,10 @@
-package foxminded.com.ua.task1;
+package ua.com.foxminded.task1;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import foxminded.com.ua.anagram.Anagram;
+import ua.com.foxminded.task1.anagram.Anagram;
 
 public class AnagramApp {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package foxminded.com.ua.anagram;
+package ua.com.foxminded.task1.anagram;
 
 public class Anagram {
     private final static String WHITE_SPACES_PATTERN = "\\s";
@@ -33,20 +33,20 @@ public class Anagram {
     }
 
     private String reverseWord(String inputWord) {
-        StringBuilder revercedWord = new StringBuilder(inputWord);
+        StringBuilder reversedWord = new StringBuilder(inputWord);
         StringBuilder tempWord = new StringBuilder();
-        for (int letterPosition = revercedWord.length() - 1; letterPosition >= 0; letterPosition--) {
-            if (Character.isLetter(revercedWord.charAt(letterPosition))) {
-                tempWord.append(revercedWord.charAt(letterPosition));
+        for (int pointer = reversedWord.length() - 1; pointer >= 0; pointer--) {
+            if (Character.isLetter(reversedWord.charAt(pointer))) {
+                tempWord.append(reversedWord.charAt(pointer));
             }
         }
         int letterPositionInTemp = 0;
-        for (int letterPosition = 0; letterPosition <= revercedWord.length() - 1; letterPosition++) {
-            if (Character.isLetter(revercedWord.charAt(letterPosition))) {
-                revercedWord.setCharAt(letterPosition, tempWord.charAt(letterPositionInTemp));
+        for (int pointer = 0; pointer <= reversedWord.length() - 1; pointer++) {
+            if (Character.isLetter(reversedWord.charAt(pointer))) {
+                reversedWord.setCharAt(pointer, tempWord.charAt(letterPositionInTemp));
                 letterPositionInTemp++;
             }
         }
-        return revercedWord.toString();
+        return reversedWord.toString();
     }
 }

@@ -1,10 +1,10 @@
-package foxminded.com.ua.anagram;
+package ua.com.foxminded.task1.anagram;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import foxminded.com.ua.anagram.Anagram;
+import ua.com.foxminded.task1.anagram.Anagram;
 
 class AnagramTest {
     Anagram anagram = new Anagram();
