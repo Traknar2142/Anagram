@@ -1,7 +1,7 @@
 package ua.com.foxminded.task1.anagram;
 
 public class Anagram {
-    private final static String WHITE_SPACES_PATTERN = "\\s";
+    private static final String WHITE_SPACES_PATTERN = "\\s";
 
     public String createAnagram(String inputString) {
         if (inputString == null) {
